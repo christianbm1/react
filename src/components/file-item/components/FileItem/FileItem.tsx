@@ -33,6 +33,8 @@ const FileItem: FC<FileItemProps> = (props: FileItemProps) => {
     localization,
     errors,
     imageUrl,
+    onClick,
+    allStyle
   } = mergeProps(props, FileItemPropsDefault);
 
   const sizeFormatted: string = file ? fileSizeFormater(file.size) : "0 KB";
@@ -110,19 +112,28 @@ const FileItem: FC<FileItemProps> = (props: FileItemProps) => {
     //avoid children to trigger onClick ripple from parent
     e.stopPropagation();
   }
+  const handleNewClick = async (e) => {
+    e.stopPropagation();
+    if (imageSource && file) {
+      console.log(style)
+      onClick?.(() => onClick)
+    }
+  }
   if (file && typeof file.name == "string") {
     return (
-      <div className="dz-ui-file-item-container" onClick={handleClick}>
-        <div className={`file-item-full-container-container`} style={style}>
+      <div onClick={handleNewClick} style={allStyle.fileItemContainerBackground}>
+        <div style={allStyle.fileItemContainer}>
           <Paper
-            className={`file-item-icon-container ${showInfo ? " hide" : ""}`}
+            style={allStyle.fileItemBackground}
           >
             <FileItemImage
               imageSource={imageSource}
               url={url}
               fileName={file.name}
+              fileItemImageContainer={allStyle.fileItemImageContainer}
+              fileItemImage={allStyle.fileItemImage}
             />
-            <FileItemMainLayer
+            {/*<FileItemMainLayer
               showInfo={showInfo}
               //fileNamePosition={fileName}
               fileName={file.name}
@@ -150,10 +161,10 @@ const FileItem: FC<FileItemProps> = (props: FileItemProps) => {
               uploadStatus={uploadStatus}
               uploadMessage={uploadMessage}
               localization={localization}
-            />
+            />*/}
           </Paper>
           {!onlyImage && (
-            <div className="file-item-name">{shrinkWord(file.name)}</div>
+            <div style={allStyle.fileItemTitle}>{shrinkWord(file.name)}</div>
           )}
         </div>
       </div>

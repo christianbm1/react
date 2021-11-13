@@ -80,6 +80,8 @@ const InputButton: React.FC<InputButtonProps> = (props: InputButtonProps) => {
         type="file"
         multiple={multiple}
         accept={accept}
+        directory="" 
+        webkitdirectory=""
       />
     </Fragment>
   );

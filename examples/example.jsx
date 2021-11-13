@@ -1,5 +1,7 @@
+import React from 'react'
 import { Dropzone, FileItem, FullScreenPreview } from "../src";
 import { useState } from "react";
+
 export default function App() {
   const [files, setFiles] = useState([]);
   const [imageSrc, setImageSrc] = useState(undefined);
@@ -14,6 +16,7 @@ export default function App() {
     setImageSrc(imageSource);
   };
   return (
+    <div>
     <Dropzone
       style={{ minWidth: "550px" }}
       //view={"list"}
@@ -48,5 +51,6 @@ export default function App() {
         onClose={(e) => handleSee(undefined)}
       />
     </Dropzone>
+    </div>
   );
 }

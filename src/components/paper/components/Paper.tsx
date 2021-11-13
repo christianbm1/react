@@ -1,6 +1,6 @@
 import React, { MouseEventHandler, FC } from "react";
 import { PaperProps, PaperPropsDefault } from "./PaperProps";
-import "./Paper.scss";
+//import "./Paper.scss";
 import { mergeProps } from "@unlimited-react-components/kernel";
 
 const Paper: FC<PaperProps> = (props: PaperProps) => {

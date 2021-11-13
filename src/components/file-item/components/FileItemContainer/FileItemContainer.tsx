@@ -13,6 +13,7 @@ const FileItemContainer: FC<FileItemContainerProps> = (
     <div
       className={`file-item-list-container file-item-list-${finalView}`}
       style={style}
+      onClick={props.onClick}
     >
       {children}
     </div>

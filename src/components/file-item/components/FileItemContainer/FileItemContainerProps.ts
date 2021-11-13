@@ -6,5 +6,6 @@ export interface FileItemContainerProps extends OverridableProps {
      * files in a horizontal list. 
      * Convenient for saving space in page.
      */
+    onClick?: Function;
     view?: "grid" | "list";
 }

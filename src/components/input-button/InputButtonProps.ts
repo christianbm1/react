@@ -46,6 +46,8 @@ export interface InputButtonProps extends MaterialButtonProps {
   * only English, French , Portuguese and Spanish are supported
   */
     localization?: Localization;
+    directory?: string;
+    webkitdirectory?: string;
 }
 
 /**

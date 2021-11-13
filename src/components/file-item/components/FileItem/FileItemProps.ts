@@ -2,6 +2,15 @@ import { Localization } from "../../../../localization/localization";
 import { PaperProps } from "../../../paper/components/PaperProps";
 
 
+export interface Style {
+    fileItemContainerBackground?:object;
+    fileItemContainer?: object;
+    fileItemBackground?: object;
+    fileItemImageContainer?: object;
+    fileItemImage?: object;
+    fileItemTitle?: object;
+}
+
 export interface FileItemValidator {
     /**
      * The maximum file size allowed in bytes
@@ -105,6 +114,8 @@ export interface FileItemProps extends PaperProps {
      * only English and Spanish is supported
      */
     localization?: Localization;
+    onClick?: Function;
+    allStyle?: Style;
 }
 /**
  * Base default props
@@ -123,6 +134,7 @@ export const FileItemPropsDefault: FileItemProps = {
     , localization: "EN-en",
     onlyImage: false,
     imageUrl: undefined,
-    errors: undefined
+    errors: undefined,
+    allStyle: {}
     //fileName: "bottom"
 }

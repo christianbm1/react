@@ -12,19 +12,21 @@ export interface FileItemImageProps {
    * The name to be used as alt
    */
    fileName:string;
+   fileItemImageContainer?:object;
+   fileItemImage?:object;
 }
 
 const FileItemImage: FC<FileItemImageProps> = (props: FileItemImageProps) => {
-  const { imageSource, url ,fileName} = props;
+  const { imageSource, url ,fileName, fileItemImageContainer, fileItemImage} = props;
   return (
     <Fragment>
-      {imageSource && (
+      {/*imageSource && (
         <div className="img-container blur">
           <img src={imageSource} alt={`blur ${fileName}`} />
         </div>
-      )}
-      <div className="img-container">
-        <img src={imageSource || url} alt={`preview ${fileName}`} />
+      )*/}
+      <div style={fileItemImageContainer}>
+        <img src={imageSource || url} alt={`preview ${fileName}`} style={fileItemImage}/>
       </div>
     </Fragment>
   );
