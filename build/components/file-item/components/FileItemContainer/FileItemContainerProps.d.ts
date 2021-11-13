@@ -6,4 +6,5 @@ export interface FileItemContainerProps extends OverridableProps {
      * Convenient for saving space in page.
      */
     view?: "grid" | "list";
+    onClick?: Function;
 }

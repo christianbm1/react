@@ -6,14 +6,14 @@ import { FileItemContainerProps } from "./FileItemContainerProps";
 const FileItemContainer: FC<FileItemContainerProps> = (
   props: FileItemContainerProps,
 ) => {
-  const { children, view, style } = props;
+  const { children, view, style, onClick } = props;
   const finalView = view || "list";
 
   return (
     <div
       className={`file-item-list-container file-item-list-${finalView}`}
       style={style}
-      onClick={props.onClick}
+      onClick={() => props.onClick}
     >
       {children}
     </div>

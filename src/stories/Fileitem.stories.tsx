@@ -22,7 +22,7 @@ function App(){
   }
     return(
         <div>
-          <InputButton onChange={(files) => addImages(files)}
+          <InputButton multiple onChange={(files) => addImages(files)}
           />
           <FileItemContainer
             view="grid"

@@ -24,7 +24,7 @@ const InputButton: React.FC<InputButtonProps> = (props: InputButtonProps) => {
     style,
     textColor,
     validator,
-    variant,localization
+    variant,localization, directory, webkitdirectory
   } = mergeProps(props, InputButtonDefaultProps);
   const inputRef = useRef<HTMLInputElement>(null);
   const localValidator: FileValidator = {
@@ -80,8 +80,8 @@ const InputButton: React.FC<InputButtonProps> = (props: InputButtonProps) => {
         type="file"
         multiple={multiple}
         accept={accept}
-        directory="" 
-        webkitdirectory=""
+        //directory="" 
+        //webkitdirectory=""
       />
     </Fragment>
   );

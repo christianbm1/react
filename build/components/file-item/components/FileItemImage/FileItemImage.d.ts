@@ -12,6 +12,9 @@ export interface FileItemImageProps {
      * The name to be used as alt
      */
     fileName: string;
+    fileItemImageContainer?: object;
+    fileItemImage?: object;
+    onClick?: Function;
 }
 declare const FileItemImage: FC<FileItemImageProps>;
 export default FileItemImage;
