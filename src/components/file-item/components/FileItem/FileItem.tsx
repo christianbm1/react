@@ -85,7 +85,8 @@ const FileItem: FC<FileItemProps> = (props: FileItemProps) => {
     //////////////////////////////
   };
 
-  const handleDelete = (): void => {
+  const handleDelete = (e): void => {
+    e.stopPropagation();
     if (onDelete) {
       onDelete(id);
     }
@@ -115,14 +116,14 @@ const FileItem: FC<FileItemProps> = (props: FileItemProps) => {
   const handleNewClick = async (e) => {
     e.stopPropagation();
     if (imageSource && file) {
-      console.log(style)
+      //console.log(style)
       onClick?.(() => onClick)
     }
   }
   if (file && typeof file.name == "string") {
     return (
-      <div onClick={handleNewClick} style={allStyle.fileItemContainerBackground}>
-        <div style={allStyle.fileItemContainer}>
+      <div onClick={handleClick} style={allStyle.fileItemContainerBackground}>
+        <div style={allStyle.fileItemContainer} onClick={handleNewClick}>
           <Paper
             style={allStyle.fileItemBackground}
           >
@@ -132,6 +133,7 @@ const FileItem: FC<FileItemProps> = (props: FileItemProps) => {
               fileName={file.name}
               fileItemImageContainer={allStyle.fileItemImageContainer}
               fileItemImage={allStyle.fileItemImage}
+              onClick={handleNewClick}
             />
             {/*<FileItemMainLayer
               showInfo={showInfo}
@@ -164,7 +166,20 @@ const FileItem: FC<FileItemProps> = (props: FileItemProps) => {
             />*/}
           </Paper>
           {!onlyImage && (
-            <div style={allStyle.fileItemTitle}>{shrinkWord(file.name)}</div>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              padding: '5px'
+            }}>
+              <div style={allStyle.fileItemTitle}>
+                {shrinkWord(file.name)}
+              </div>
+              <div style={allStyle.fileItemTitleButtonContainer}>
+                <button style={allStyle.fileItemTitleButton} onClick={handleDelete}>x</button>
+              </div>
+            </div>
           )}
         </div>
       </div>

@@ -9,6 +9,8 @@ export interface Style {
     fileItemImageContainer?: object;
     fileItemImage?: object;
     fileItemTitle?: object;
+    fileItemTitleButtonContainer?: object;
+    fileItemTitleButton?: object;
 }
 
 export interface FileItemValidator {

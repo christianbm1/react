@@ -11,9 +11,10 @@ export interface FileItemImageProps {
   /**
    * The name to be used as alt
    */
-   fileName:string;
-   fileItemImageContainer?:object;
-   fileItemImage?:object;
+  fileName:string;
+  fileItemImageContainer?:object;
+  fileItemImage?:object;
+  onClick?: Function;
 }
 
 const FileItemImage: FC<FileItemImageProps> = (props: FileItemImageProps) => {
@@ -26,7 +27,7 @@ const FileItemImage: FC<FileItemImageProps> = (props: FileItemImageProps) => {
         </div>
       )*/}
       <div style={fileItemImageContainer}>
-        <img src={imageSource || url} alt={`preview ${fileName}`} style={fileItemImage}/>
+        <img src={imageSource || url} alt={`preview ${fileName}`} style={fileItemImage} onClick={(e) => props.onClick(e)}/>
       </div>
     </Fragment>
   );
